@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nguyen Van Viet 🐳</title>
+  <style>
+    {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: url('https://v1.pinimg.com/videos/iht/expMp4/14/de/3b/14de3b653e2101d37adf62a120c2c776_720w.mp4') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .title {
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #7fff00,
+        #00ff00,
+        #00ff7f,
+        #00ffff,
+        #007fff,
+        #0000ff,
+        #7f00ff,
+        #ff00ff,
+        #ff007f,
+        #ff0000
+      );
+      background-size: 400% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowMove 10s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes rainbowMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 400% 50%;
+      }
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(
+        135deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #7fff00,
+        #00ff00,
+        #00ff7f,
+        #00ffff,
+        #007fff,
+        #0000ff,
+        #7f00ff,
+        #ff00ff,
+        #ff007f,
+        #ff0000
+      );
+      background-size: 400% 100%;
+      animation: rainbowMove 10s linear infinite reverse;
+      margin-bottom: 20px;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: block;
+      background: #111;
+    }
+
+    .config-box {
+      background: transparent;
+      padding: 20px;
+      border-radius: 12px;
+      width: 320px;
+      will-change: transform;
+      animation: bounce 3s ease-in-out infinite; 
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+     .config-section {
+       position: relative;
+       background: linear-gradient(270deg, 
+    rgba(255, 0, 0, 0.1), rgba(255, 115, 0, 0.1), rgba(255, 235, 0, 0.1), 
+    rgba(71, 255, 0, 0.1), rgba(0, 255, 238, 0.1), rgba(43, 101, 255, 0.1), 
+    rgba(128, 0, 255, 0.15), rgba(255, 0, 200, 0.1),
+    rgba(255, 0, 0, 0.1), rgba(255, 115, 0, 0.1), rgba(255, 235, 0, 0.15), 
+    rgba(71, 255, 0, 0.1), rgba(0, 255, 238, 0.1), rgba(43, 101, 255, 0.1), 
+    rgba(128, 0, 255, 0.15), rgba(255, 0, 200, 0.1)
+  );
+      background-size: 800% 800%;
+      animation: rainbow 8s linear          infinite;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter:   blur(6px);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+     @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+}
+
+    .config-item {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .config-label {
+      margin-bottom: 0;
+      font-weight: bold;
+      font-size: 1.1em;
+      user-select: none;
+      color: #00ffff;
+      text-shadow: 0 0 6px #00ffff, 0 0 10px #00ffff;
+      width: 100%;
+      text-align: left;
+      padding-left: 45px; 
+    }
+
+    .brightness-label {
+      margin-bottom: 0;
+      font-weight: bold;
+      font-size: 1em;
+      user-select: none;
+      color: #00ffff;
+      text-shadow: 0 0 6px #00ffff, 0 0 10px #00ffff;
+      width: 100%;
+      text-align: right;
+      padding-right: 207px;
+    }
+
+    .slider {
+      width: 180px;
+      height: 8px;
+      border-radius: 5px;
+      appearance: none;
+      background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #7fff00,
+        #00ff00,
+        #00ff7f,
+        #00ffff,
+        #007fff,
+        #0000ff,
+        #7f00ff,
+        #ff00ff,
+        #ff007f,
+        #ff0000
+      );
+      background-size: 400% 100%;
+      animation: rainbowMove 10s linear infinite;
+      outline: none;
+      transition: background-position 0.4s ease;
+      margin-right: 10px;
+    }
+
+    .slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      border: 2px solid cyan;
+      box-shadow: 0 0 8px cyan;
+      transition: transform 0.2s ease;
+    }
+
+    .slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid cyan;
+      box-shadow: 0 0 8px cyan;
+      cursor: pointer;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 57px;
+      height: 22px;
+      vertical-align: middle;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider-switch {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #7fff00,
+        #00ff00,
+        #00ff7f,
+        #00ffff,
+        #007fff,
+        #0000ff,
+        #7f00ff,
+        #ff00ff,
+        #ff007f,
+        #ff0000
+      );
+      background-size: 400% 100%;
+      animation: rainbowMove 10s linear infinite;
+      border-radius: 22px;
+      transition: 0.4s;
+    }
+
+    .slider-switch:before {
+      position: absolute;
+      content: "";
+      height: 18px; width: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.4s;
+      box-shadow: 0 0 6px cyan;
+    }
+
+    .switch input:checked + .slider-switch {
+      background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #7fff00,
+        #00ff00,
+        #00ff7f,
+        #00ffff,
+        #007fff,
+        #0000ff,
+        #7f00ff,
+        #ff00ff,
+        #ff007f,
+        #ff0000
+      );
+      background-size: 400% 100%;
+      animation: rainbowMove 10s linear infinite reverse;
+      box-shadow: 0 0 10px 2px cyan;
+    }
+
+    .switch input:checked + .slider-switch:before {
+      transform: translateX(18px);
+      box-shadow: 0 0 8px 2px #0ff;
+    }
+
+    .brightness-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slider-with-value {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .value-display {
+      font-weight: bold;
+      font-size: 1em;
+      background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #7fff00,
+        #00ff00,
+        #00ff7f,
+        #00ffff,
+        #007fff,
+        #0000ff,
+        #7f00ff,
+        #ff00ff,
+        #ff007f,
+        #ff0000
+      );
+      background-size: 400% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowMove 10s linear infinite;
+      min-width: 35px;
+      text-align: center;
+      user-select: none;
+    }
+
+    .footer-text {
+      margin-top: 0.1px;
+      font-weight: bold;
+      font-size: 1.2em;
+      background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #7fff00,
+        #00ff00,
+        #00ff7f,
+        #00ffff,
+        #007fff,
+        #0000ff,
+        #7f00ff,
+        #ff00ff,
+        #ff007f,
+        #ff0000
+      );
+      background-size: 400% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowMove 10s linear infinite;
+      text-align: center;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">OPTIMAL CONFIG-APP</div>
+  <div class="avatar">
+    <img src="https://i.postimg.cc/L5KCbbkk/IMG-0107.jpg" alt="Avatar" />
+  </div>
+  <div class="config-box" id="configBox">
+    <div class="config-section">
+      <div class="config-item">
+        <label class="config-label" for="soundSwitch">Pointer Speed Mode</label>
+        <label class="switch">
+          <input type="checkbox" id="soundSwitch" onclick="toggleSwitch(this)" />
+          <span class="slider-switch"></span>
+        </label>
+      </div>
+    </div>
+    <div class="config-section">
+      <div class="brightness-container">
+        <label class="brightness-label" for="brightnessSlider">High Running Click</label>
+        <div class="slider-with-value">
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            class="slider"
+            id="brightnessSlider"
+          />
+          <div id="brightnessValue" class="value-display">0%</div>
+        </div>
+      </div>
+    </div>
+    <div class="config-section">
+      <button onclick="activateMenu()" style="
+        width: 100%;
+        padding: 12px;
+        font-weight: bold;
+        font-size: 1em;
+        color: white;
+        background: linear-gradient(90deg, #00ffff, #007fff, #0000ff);
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 0 8px cyan;
+        transition: background 0.3s ease;
+      ">
+        Kích Hoạt Tối Ưu
+      </button>
+    </div>
+  </div>
+  <div class="footer-text">Nguyen Van Viet 🐳</div>
+
+  <div id="toast" style="
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    font-size: 1.1em;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 0 20px cyan;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 0.5s ease;
+    z-index: 1000;
+  "></div>
+
+  <script>
+    const toast = document.getElementById('toast');
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.style.opacity = '1';
+      setTimeout(() => {
+        toast.style.opacity = '0';
+      }, 3500);
+    }
+
+    function getDeviceType() {
+      const ua = navigator.userAgent;
+      if (/iPad|Macintosh/.test(ua) && 'ontouchend' in document) return 'iPad';
+      if (/iPhone/.test(ua)) return 'iPhone';
+      if (/iPod/.test(ua)) return 'iPod';
+      return 'Unknown Device';
+    }
+
+    function getIOSVersion() {
+      const ua = navigator.userAgent;
+      const match = ua.match(/OS (\d+)_/);
+      return match ? match[1] : null;
+    }
+
+    function activateMenu() {
+      const device = getDeviceType();
+      const version = getIOSVersion() || 'Không rõ phiên bản iOS';
+      const info = `${device} - iOS ${version}`;
+      showToast(info);
+    }
+
+    const brightnessSlider = document.getElementById('brightnessSlider');
+    const brightnessValue = document.getElementById('brightnessValue');
+
+    brightnessSlider.addEventListener('input', () => {
+      brightnessValue.textContent = brightnessSlider.value + '%';
+    });
+  </script>
+</body>
+</html>
